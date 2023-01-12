@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #383636;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 12000ms;
+    transition: all 400ms ease-in-out;
+}
+
+.setAnimation {
+    animation-name: animation;
+}
+
+@keyframes animation {
+    0% {
+        background-color: #383636;
+    }
+    20% {
+        background-color: #0f6321;
+    }
+    40% {
+        background-color: #157d9c;
+    }
+    60% {
+        background-color: #a118bd;
+    }
+    80% {
+        background-color: #9b081b;
+    }
+    100% {
+        background-color: #383636;
+    }
+}
+
+h1 {
+    color: white;
+    margin-top: 10px;
+    text-shadow: 3px 3px 5px #00000083;
+    text-align: center;
+}
+
+#container {
+    background-color: #818186;
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #00000096;
+}
+
+#display {
+    position: relative;
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #03095e;
+    padding: 20px;
+    margin: 10px auto;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #444343;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px 1px black;
+}
+
+#controls div {
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: #202020;
+    color: white;
+}
+
+#track_list {
+    width: 400px;
+}
+
+#track_list p {
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    text-shadow: 2px 2px 3px #00000096;
+    transition: all 150ms ease-in-out;
+}
+
+.color_item {
+    color: yellow;
+    text-decoration: underline;
+}
+
+@media (max-width: 400px) {
+    #container {
+        width: 80%;
+    }
+    #controls {
+        gap: 5px;
+    }
+    #display {
+        height: max-content;
+    }
+    #track_list {
+        width: 80%;
+    }
+}
+
+@media (max-width: 300px) {
+    #controls div {
+        font-size: 13px;
+        padding: 2px 4px;
+    }
+}
