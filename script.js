@@ -24,23 +24,23 @@ audioList.forEach(song => {
     lastSongPlayed.push(song.getAttribute('src'))
 });
 
-let numberSong = 0;
+let songNumber = 0;
 
 play.addEventListener('click', () => {
     prev.style.display = 'none'
     next.style.display = 'none'
 
-    if (numberSong > 12) {
-        numberSong = 0
+    if (songNumber > 12) {
+        songNumber = 0
     }
-    if (numberSong < 0) {
-        numberSong = 12
+    if (songNumber < 0) {
+        songNumber = 12
     }
-    if (audioList[numberSong].getAttribute('src') == '') {
-        audioList[numberSong].setAttribute('src', lastSongPlayed[numberSong])
+    if (audioList[songNumber].getAttribute('src') == '') {
+        audioList[songNumber].setAttribute('src', lastSongPlayed[songNumber])
     }
 
-    audioList[numberSong].play()
+    audioList[songNumber].play()
 
     body.classList.add('setAnimation')
 
@@ -48,7 +48,7 @@ play.addEventListener('click', () => {
 
         trackListItens.forEach(tracks => tracks.classList.remove('color_item'))
 
-        trackListItens[numberSong].classList.add('color_item')
+        trackListItens[songNumber].classList.add('color_item')
     })
 });
 
@@ -59,7 +59,7 @@ stop.addEventListener('click', () => {
     if (lastSongPlayed.length == 0) {
         return
     } else {
-        audioList[numberSong].setAttribute('src', '')
+        audioList[songNumber].setAttribute('src', '')
     }
 
     body.classList.remove('setAnimation')
@@ -68,7 +68,7 @@ stop.addEventListener('click', () => {
 
 pause.addEventListener('click', () => {
 
-    audioList[numberSong].pause()
+    audioList[songNumber].pause()
 
     body.classList.remove('setAnimation')
 
@@ -76,38 +76,38 @@ pause.addEventListener('click', () => {
 
 next.addEventListener('click', () => {
 
-    numberSong++
+    songNumber++
 
-    if (numberSong > 12) {
-        numberSong = 0
+    if (songNumber > 12) {
+        songNumber = 0
     }
 
-    trackName.innerHTML = lastSongPlayed[numberSong].replace('audios/', '').replace('.mp3', '')
+    trackName.innerHTML = lastSongPlayed[songNumber].replace('audios/', '').replace('.mp3', '')
 
     trackListItens.forEach(item => {
 
         trackListItens.forEach(tracks => tracks.style.color = 'white')
 
-        trackListItens[numberSong].style.color = 'yellow'
+        trackListItens[songNumber].style.color = 'yellow'
     })
 
 });
 
 prev.addEventListener('click', () => {
 
-    numberSong = numberSong - 1
+    songNumber = songNumber - 1
 
-    if (numberSong < 0) {
-        numberSong = 12
+    if (songNumber < 0) {
+        songNumber = 12
     }
 
-    trackName.innerHTML = lastSongPlayed[numberSong].replace('audios/', '').replace('.mp3', '')
+    trackName.innerHTML = lastSongPlayed[songNumber].replace('audios/', '').replace('.mp3', '')
 
     trackListItens.forEach(item => {
 
         trackListItens.forEach(tracks => tracks.style.color = 'white')
 
-        trackListItens[numberSong].style.color = 'yellow'
+        trackListItens[songNumber].style.color = 'yellow'
     })
 
 });
